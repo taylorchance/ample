@@ -1,12 +1,17 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
+    <ao-navbar>
+      <li
+        v-for="route in routes"
+        :key="route.path"
+        :class="route.name">
+        <router-link :to="route.path" >{{ route.name }}</router-link>
+      </li>
+    </ao-navbar>
     <router-view/>
   </div>
 </template>
+
 
 <style lang="scss">
 #app {
@@ -26,4 +31,39 @@
     }
   }
 }
+#app .ao-navbar {
+  background: #265284;
+  float: left;
+  width: 48px;
+  height: 100vh;
+
+  & > ul {
+
+    & > li {
+      display: block;
+
+      & .router-link-exact-active, .router-link-active, .active {
+        background-color: none !important;
+      }
+
+      & > * {
+        background: none;
+      }
+    }
+  }
+}
 </style>
+
+<script>
+export default {
+  data () {
+    return {
+      routes: [
+        { path: '/exchange', name: 'exchange'},
+        { path: '/buy', name: 'buy'},
+        { path: '/buyershomepage', name: 'BuyersHomepage'},
+      ]
+    }
+  }
+}
+</script>
