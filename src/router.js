@@ -1,8 +1,12 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Home from './views/Home.vue'
+import NewProductCall from './views/NewProductCall.vue'
 import Exchange from './views/Exchange.vue'
 import BuyersHomepage from './views/BuyersHomepage.vue'
+
+
+
 
 Vue.use(Router)
 
@@ -27,6 +31,11 @@ export default new Router({
       path: '/buyershomepage',
       name: 'buyershomepage',
       component: BuyersHomepage
+    },
+    {
+      path: '/newproductcall',
+      name: 'newproductcall',
+      component: NewProductCall
     }
   ]
 })
